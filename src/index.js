@@ -1,8 +1,10 @@
 require("./models/user");
+require("./models/Track");
 const express = require("express");
 const mongoose = require("mongoose");
 const { mongoURI } = require("../config");
 const authRoutes = require("./routes/authRoutes");
+const trackRoutes = require("./routes/trackRoutes");
 const bodyParser = require("body-parser");
 const requireAuth = require("./middlewares/requireAuth");
 const app = express();
@@ -10,6 +12,7 @@ const port = 3000;
 
 app.use(bodyParser.json());
 app.use(authRoutes);
+app.use(trackRoutes);
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
