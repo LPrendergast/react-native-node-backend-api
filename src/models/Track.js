@@ -7,11 +7,10 @@ const pointSchema = new mongoose.Schema({
     longitude: Number,
     altitude: Number,
     accuracy: Number,
-    speed: Number,
-    heading: Number
+    heading: Number,
+    speed: Number
   }
 });
-
 const trackSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,

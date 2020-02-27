@@ -4,7 +4,7 @@ const User = mongoose.model("User");
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
-  //authorization === 'Bearer 2930890dg8d90fg0dfg'  - example
+  // authorization === 'Bearer laksjdflaksdjasdfklj'
 
   if (!authorization) {
     return res.status(401).send({ error: "You must be logged in." });
@@ -17,6 +17,7 @@ module.exports = (req, res, next) => {
     }
 
     const { userId } = payload;
+
     const user = await User.findById(userId);
     req.user = user;
     next();
